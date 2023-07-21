@@ -1,0 +1,13 @@
+
+=================================================================
+data Center
+author zyg
+目前为测试版本v 1.0.1
+此版本升级如下
+1.升级springBoot及相应依赖jar包版本
+2.加入mybatis-plus支持
+3.升级swagger-ui 到 openApi 3.0 规范 并引入 knife4j 增强版UI
+接口地址见 http://localhost:9510/swagger-ui/index.html#/
+接口地址新版 knife4j-spring-ui 集成 增强版UI http://localhost:9510/doc.html
+=================================================================
+

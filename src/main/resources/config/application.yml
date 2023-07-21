@@ -1,0 +1,72 @@
+﻿top:
+  application:
+    name: dataCenter
+    description: 数据中心服务
+    port: 9510
+  mysql:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: zyg
+    password: 123456
+swagger:
+  version: 0.0.1
+  title: dataCenter
+  description: dataCenter
+  serverurl: http://localhost:${top.application.port}
+  contact:
+    name: zyg
+    url: www.google.com
+    email: 15237112069@163.com
+  apis:
+    - id: dataCenter
+      url: com.top.sports.data.center.api
+      name: dataCenter
+server:
+  port: ${top.application.port}
+  tomcat:
+    accept-count: 500
+    max-threads: 100
+    min-spare-threads: 10
+    max-connections: 1000
+spring:
+  application:
+    name: dataCenter
+  datasource:
+    url: ${top.mysql.url}
+    username: ${top.mysql.username}
+    password: ${top.mysql.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+  devtools:
+    livereload:
+      port: 35730
+    redis:
+      timeout: 5000
+      database: 1
+      host: localhost
+      port: 6379
+      jedis:
+        pool:
+          max-idle: 60
+#启动 swagger
+springfox:
+  documentation:
+    enabled: true
+mybatis:
+  mapper-locations : classpath*:mapper/*Mapper.xml
+#mybatis-plus:
+#  mapper-locations: classpath*:mapper/*Mapper.xml
+#  global-config:
+#    db-config:
+#      id-type: auto
+#log4j2 漏洞处理
+log4j2:
+  formatMsgNoLookups : true
+
+
